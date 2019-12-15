@@ -10,27 +10,17 @@ public class FoldingBike implements Bike {
     private String color;
     private int price;
 
+    public FoldingBike(String brandName, int sizeWheels, int numberGears, int weight, boolean lights, String color, int price) {
+        this.brandName = brandName;
+        this.sizeWheels = sizeWheels;
+        this.numberGears = numberGears;
+        this.weight = weight;
+        this.lights = lights;
+        this.color = color;
+        this.price = price;
+    }
 
-    @Override
-    public String getStringPropertiesToFile() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(TYPE_NAME);
-        stringBuilder.append(" ");
-        stringBuilder.append(brandName);
-        stringBuilder.append("; ");
-        stringBuilder.append(sizeWheels);
-        stringBuilder.append("; ");
-        stringBuilder.append(numberGears);
-        stringBuilder.append("; ");
-        stringBuilder.append(weight);
-        stringBuilder.append("; ");
-        stringBuilder.append(lights);
-        stringBuilder.append("; ");
-        stringBuilder.append(color);
-        stringBuilder.append("; ");
-        stringBuilder.append(price);
-        stringBuilder.append("\n");
-        return stringBuilder.toString();
+    public FoldingBike() {
     }
 
     public static FoldingBike addNewBikeFromLine(Scanner scanner) {
@@ -76,22 +66,31 @@ public class FoldingBike implements Bike {
     }
 
     @Override
+    public String getStringPropertiesToFile() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(TYPE_NAME);
+        stringBuilder.append(" ");
+        stringBuilder.append(brandName);
+        stringBuilder.append("; ");
+        stringBuilder.append(sizeWheels);
+        stringBuilder.append("; ");
+        stringBuilder.append(numberGears);
+        stringBuilder.append("; ");
+        stringBuilder.append(weight);
+        stringBuilder.append("; ");
+        stringBuilder.append(lights);
+        stringBuilder.append("; ");
+        stringBuilder.append(color);
+        stringBuilder.append("; ");
+        stringBuilder.append(price);
+        stringBuilder.append("\n");
+        return stringBuilder.toString();
+    }
+
+    @Override
     public String toString() {
         return TYPE_NAME  + " " + brandName + " with " + sizeWheels + " gear(s) " + "and" + (lights == true ? " " : " no ") + "head/tail light." + "\n" +
                 "Price: " + price + " euros.";
-    }
-
-    public FoldingBike(String brandName, int sizeWheels, int numberGears, int weight, boolean lights, String color, int price) {
-        this.brandName = brandName;
-        this.sizeWheels = sizeWheels;
-        this.numberGears = numberGears;
-        this.weight = weight;
-        this.lights = lights;
-        this.color = color;
-        this.price = price;
-    }
-
-    public FoldingBike() {
     }
 
     @Override
@@ -99,6 +98,7 @@ public class FoldingBike implements Bike {
         return TYPE_NAME;
     }
 
+    @Override
     public String getBrandName() {
         return brandName;
     }

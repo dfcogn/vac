@@ -23,28 +23,6 @@ public class EBike implements Bike {
     public EBike() {
     }
 
-    @Override
-    public String getStringPropertiesToFile() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(TYPE_NAME);
-        stringBuilder.append(" ");
-        stringBuilder.append(brandName);
-        stringBuilder.append("; ");
-        stringBuilder.append(maximumSpeed);
-        stringBuilder.append("; ");
-        stringBuilder.append(weight);
-        stringBuilder.append("; ");
-        stringBuilder.append(lights);
-        stringBuilder.append("; ");
-        stringBuilder.append(batteryCapacity);
-        stringBuilder.append("; ");
-        stringBuilder.append(color);
-        stringBuilder.append("; ");
-        stringBuilder.append(price);
-        stringBuilder.append("\n");
-        return stringBuilder.toString();
-    }
-
     public static EBike addNewBikeFromLine(Scanner scanner) {
         System.out.println("Enter Brand name of " + EBike.TYPE_NAME + ":");
         String brandName = scanner.next();
@@ -88,6 +66,28 @@ public class EBike implements Bike {
     }
 
     @Override
+    public String getStringPropertiesToFile() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(TYPE_NAME);
+        stringBuilder.append(" ");
+        stringBuilder.append(brandName);
+        stringBuilder.append("; ");
+        stringBuilder.append(maximumSpeed);
+        stringBuilder.append("; ");
+        stringBuilder.append(weight);
+        stringBuilder.append("; ");
+        stringBuilder.append(lights);
+        stringBuilder.append("; ");
+        stringBuilder.append(batteryCapacity);
+        stringBuilder.append("; ");
+        stringBuilder.append(color);
+        stringBuilder.append("; ");
+        stringBuilder.append(price);
+        stringBuilder.append("\n");
+        return stringBuilder.toString();
+    }
+
+    @Override
     public String getTypeName() {
         return TYPE_NAME;
     }
@@ -98,8 +98,7 @@ public class EBike implements Bike {
                 "Price: " + price + " euros.";
     }
 
-
-
+    @Override
     public String getBrandName() {
         return brandName;
     }
@@ -155,6 +154,4 @@ public class EBike implements Bike {
     public void setPrice(int price) {
         this.price = price;
     }
-
-
 }

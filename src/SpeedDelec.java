@@ -25,28 +25,6 @@ public class SpeedDelec implements Bike {
     public SpeedDelec() {
     }
 
-    @Override
-    public String getStringPropertiesToFile() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(TYPE_NAME);
-        stringBuilder.append(" ");
-        stringBuilder.append(brandName);
-        stringBuilder.append("; ");
-        stringBuilder.append(maximumSpeed);
-        stringBuilder.append("; ");
-        stringBuilder.append(weight);
-        stringBuilder.append("; ");
-        stringBuilder.append(lights);
-        stringBuilder.append("; ");
-        stringBuilder.append(batteryCapacity);
-        stringBuilder.append("; ");
-        stringBuilder.append(color);
-        stringBuilder.append("; ");
-        stringBuilder.append(price);
-        stringBuilder.append("\n");
-        return stringBuilder.toString();
-    }
-
     public static SpeedDelec addNewBikeFromLine(Scanner scanner) {
         System.out.println("Enter Brand name of " + SpeedDelec.TYPE_NAME + ":");
         String brandName = scanner.next();
@@ -91,6 +69,28 @@ public class SpeedDelec implements Bike {
     }
 
     @Override
+    public String getStringPropertiesToFile() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(TYPE_NAME);
+        stringBuilder.append(" ");
+        stringBuilder.append(brandName);
+        stringBuilder.append("; ");
+        stringBuilder.append(maximumSpeed);
+        stringBuilder.append("; ");
+        stringBuilder.append(weight);
+        stringBuilder.append("; ");
+        stringBuilder.append(lights);
+        stringBuilder.append("; ");
+        stringBuilder.append(batteryCapacity);
+        stringBuilder.append("; ");
+        stringBuilder.append(color);
+        stringBuilder.append("; ");
+        stringBuilder.append(price);
+        stringBuilder.append("\n");
+        return stringBuilder.toString();
+    }
+
+    @Override
     public String toString() {
         return TYPE_NAME  + " " + brandName + " with " + batteryCapacity + " mAh battery " + "and" + (lights == true ? " " : " no ") + "head/tail light." + "\n" +
                 "Price: " + price + " euros.";
@@ -102,6 +102,7 @@ public class SpeedDelec implements Bike {
         return TYPE_NAME;
     }
 
+    @Override
     public String getBrandName() {
         return brandName;
     }

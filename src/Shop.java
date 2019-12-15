@@ -2,8 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class Shop {
-    public static List<Bike> bikesList = new ArrayList<>();
-    public static String fileListBike = "src/ecobike.txt";
+    private static List<Bike> bikesList = Collections.synchronizedList(new ArrayList<Bike>());
+    private static String fileListBike = "src/ecobike.txt";
 
     public static void start(){
         File file = new File(fileListBike);
@@ -24,7 +24,7 @@ public class Shop {
             try {
                 readNumber = scanner.nextInt();
             }catch (Exception e){
-                System.out.println("Error! Please enter only number");
+                System.out.println("Error! Please enter only number for main menu");
                 continue;
             }
 
@@ -70,15 +70,15 @@ public class Shop {
                     System.out.println("Bike file updated");
                     break;
                 case (7):
-                    System.out.println("exit " + readNumber);
+                    System.out.println("Application stops...");
                     scanner.close();
                     break circle;
                 default:
-                    System.out.println("empty or not correct number " + readNumber);
+                    System.out.println("Not correct number " + readNumber);
                     break;
             }
         }
-        System.out.println("End");
+        System.out.println("Application topped!");
     }
 
     public static void scanBikesFromFile(){
@@ -109,16 +109,11 @@ public class Shop {
     public static void findFirstParticularBrand(){
         Scanner scanner = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Enter brand for find first bike");
-        String brandName = scanner.nextLine();
 
-        synchronized(bikesList){
-
+        synchronized (bikesList){
+            String brandName = scanner.nextLine();
+            new Thread(new FindFirstBikeByBrandRunnable(bikesList, brandName)).start();
         }
-
-
-        for (Bike bike: bikesList) {
-
-        };
     }
 
     public static void writeBikesToFile(){

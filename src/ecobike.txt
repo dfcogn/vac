@@ -1000,6 +1000,3 @@ SPEEDELEC Ultron; 60; 7000; false; 11400; lemon; 1055
 E-BIKE Ferrari; 60; 28900; false; 21000; brown; 825
 FOLDING BIKE ffffffffffffff; 22; 22; 33; true; red; 123
 SPEEDELEC spEEEpel; 1; 1; false; 1; 1; 1
-FOLDING BIKE wd w; 111111; 12; 12; false; green; 45
-FOLDING BIKE Привет новый байк пришел; 12; 12; 12; true; black; 785
-FOLDING BIKE seconr SECOND; 12; 12; 12; true; red; 123
